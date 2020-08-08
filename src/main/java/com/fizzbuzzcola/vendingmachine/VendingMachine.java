@@ -1,10 +1,12 @@
 package com.fizzbuzzcola.vendingmachine;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 
 public class VendingMachine {
 //    variable
     private BigDecimal currentAmount;
+    public Collection<Product> snacks;
 //    constructor
     public VendingMachine(BigDecimal currentAmount) {
         this.currentAmount = currentAmount;
@@ -20,8 +22,28 @@ public class VendingMachine {
     public String displayInsertCoins() {
         return "Insert Coins";
     }
+    public String displayCurrentAmount(){
+        return currentAmount.toString();
+    }
+    public String displayCurrentStatus(){
+        if (currentAmount.equals(BigDecimal.ZERO)){
+            return displayInsertCoins();
+        } else {
+            return displayCurrentAmount();
+        }
 
-    public void acceptCoin(String coin) {
+    }
+    public Product selectProduct(int choice){
+        if (choice == 1){
+            return new Cola();
+        } else if (choice == 2){
+            return new Chips();
+        } else if (choice == 3){
+            return new Candy();
+        }
+    }
+
+    public String acceptCoin(String coin) {
         BigDecimal dimeValue = new BigDecimal("0.10");
         BigDecimal nickelValue = new BigDecimal("0.05");
         BigDecimal quarterValue = new BigDecimal("0.25");
@@ -31,6 +53,8 @@ public class VendingMachine {
                 currentAmount = currentAmount.add(nickelValue);
         } else if (coin.equals("quarter")){
                 currentAmount = currentAmount.add(quarterValue);
+            } else{
+                return coin;
             }
     }
 
