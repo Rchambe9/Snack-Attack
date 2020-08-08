@@ -43,6 +43,12 @@ public class VendingMachineTest {
         BigDecimal quarterValue = new BigDecimal("0.25");
         assertEquals(quarterValue, underTest.getCurrentAmount());
     }
+    @Test
+    public void vendingMachineShouldRejectPennies(){
+        VendingMachine underTest = new VendingMachine(BigDecimal.ZERO);
+        underTest.acceptCoin("penny");
+        assertEquals(BigDecimal.ZERO, underTest.getCurrentAmount());
+    }
     }
 
 
