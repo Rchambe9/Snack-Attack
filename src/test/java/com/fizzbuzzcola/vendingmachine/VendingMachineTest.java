@@ -69,6 +69,10 @@ public class VendingMachineTest {
         underTest.selectProduct(1);
         assertEquals(new BigDecimal("0.10"),underTest.getCurrentAmount());
     }
+    @Test
+    public void vendingMachineShouldMakeChange(){
+
+    }
     }
 
 
