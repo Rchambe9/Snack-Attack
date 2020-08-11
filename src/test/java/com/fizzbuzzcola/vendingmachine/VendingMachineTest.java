@@ -49,6 +49,26 @@ public class VendingMachineTest {
         underTest.acceptCoin("penny");
         assertEquals(BigDecimal.ZERO, underTest.getCurrentAmount());
     }
+    @Test
+    public void vendingMachineResetsToZero(){
+        VendingMachine underTest = new VendingMachine(BigDecimal.ONE);
+        underTest.selectProduct(1);
+        assertEquals(BigDecimal.ZERO,underTest.getCurrentAmount());
+    }
+    @Test
+    public void vendingMachineDisplayInsertCoins(){
+        VendingMachine underTest = new VendingMachine(BigDecimal.ONE);
+        underTest.selectProduct(1);
+        assertEquals("Insert Coins",underTest.displayCurrentStatus());
+        System.out.println("Insert Coins");
+    }
+    @Test
+    public void vendingMachineInsufficientFunds(){
+        VendingMachine underTest = new VendingMachine(BigDecimal.ZERO);
+        underTest.acceptCoin("dime");
+        underTest.selectProduct(1);
+        assertEquals(new BigDecimal("0.10"),underTest.getCurrentAmount());
+    }
     }
 
 
