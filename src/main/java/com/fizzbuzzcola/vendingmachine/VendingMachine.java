@@ -12,10 +12,12 @@ public class VendingMachine {
     private Chips sampleChips = new Chips();
     private Candy sampleCandy = new Candy();
 
+
     //    constructor
     public VendingMachine(BigDecimal currentAmount) {
         this.currentAmount = currentAmount;
     }
+    public VendingMachine(BigDecimal currentAmount, Collection<Product> snacks) {this.currentAmount = currentAmount; this.snacks = snacks;}
 
     //    getter and setter
     public BigDecimal getCurrentAmount() {
@@ -34,6 +36,12 @@ public class VendingMachine {
         return currentAmount.toString();
     }
 
+    public Collection<Product> getSnacks() {return snacks;}
+
+    public void setSnacks(Collection<Product> snacks) {
+        this.snacks = snacks;
+    }
+
     public String displayCurrentStatus() {
         if (currentAmount.equals(BigDecimal.ZERO)) {
             return displayInsertCoins();
@@ -44,7 +52,7 @@ public class VendingMachine {
     }
 
     public Product selectProduct(int choice) {
-        if (choice == 1 && currentAmount.compareTo(sampleCola.getCost()) >= 0) {
+        if (choice == 1 && currentAmount.compareTo(sampleCola.getCost() && )  >= 0) {
             currentAmount = currentAmount.subtract(sampleCola.getCost());
             System.out.println("Your change is " + returnChange());
             System.out.println("Thank you.  Enjoy your Cola!");
@@ -116,8 +124,14 @@ public class VendingMachine {
 
             }
         }
-                return coinsReturned;
-    }}
+        displayCurrentStatus();
+        return coinsReturned;
+    }
+    public int inventorySize(){
+        return snacks.size();
+    }
+    }
+
 
 
 

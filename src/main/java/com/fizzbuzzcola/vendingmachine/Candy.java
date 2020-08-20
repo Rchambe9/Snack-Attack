@@ -7,3 +7,4 @@ public class Candy extends Product {
         super("Candy",new BigDecimal("0.65"));
     }
 }
+

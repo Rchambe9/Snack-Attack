@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.math.BigDecimal;
+import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -71,6 +72,17 @@ public class VendingMachineTest {
     }
     @Test
     public void vendingMachineShouldMakeChange(){
+        VendingMachine underTest = new VendingMachine(BigDecimal.ONE);
+        underTest.returnChange();
+        assertEquals(BigDecimal.ZERO, underTest.getCurrentAmount());
+
+    }
+    @Test
+    public void vendingMachineShouldKeepInventory(){
+        Collection<Product> snacks = new Collection<Product>();
+        VendingMachine underTest = new VendingMachine((BigDecimal.ONE);
+        underTest.inventorySize();
+
 
     }
     }

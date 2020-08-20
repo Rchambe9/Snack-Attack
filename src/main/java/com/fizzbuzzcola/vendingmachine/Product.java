@@ -18,6 +18,7 @@ public class Product {
     public BigDecimal getCost() {
         return cost;
     }
+
 }
 
 
